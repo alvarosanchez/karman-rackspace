@@ -15,7 +15,7 @@ import org.jclouds.rest.RestContext
  */
 class RackspaceStorageProvider extends StorageProvider {
 
-    static String name = "Rackspace Cloud Files"
+    static String name = "rackspace"
 
     String accessKey
     String secretKey

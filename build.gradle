@@ -1,28 +1,11 @@
 apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: 'bintray'
 
 group = "com.odobo.filestorage"
 version = "0.1"
-description = "An awesome groovy library"
-
-repositories {
-    jcenter()
-}
-
-sourceSets {
-    main.groovy.srcDir 'src'
-    test.groovy.srcDir 'test'
-}
-
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.2.1'
-    testCompile 'junit:junit:4.10'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.10'
-}
-
-// code below this can be safely removed if you don't want publish library ever
+description = "Karman implementation of Rackspace API"
 
 buildscript {
     repositories {
@@ -33,36 +16,63 @@ buildscript {
     }
 }
 
-apply plugin: 'maven-publish'
-apply plugin: 'bintray'
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.1'
+    testCompile 'junit:junit:4.10'
+}
+
+sourceSets {
+    main.groovy.srcDir 'src'
+    test.groovy.srcDir 'test'
+}
 
 publishing {
     publications {
         groovyMaven(MavenPublication) {
             from components.java
+
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
 }
 
-// set bintrayUser & bintrayKey in gradle.properties
 bintray {
 
-    user = getPropertyOrUseDefault("bintrayUser", "fake_user")
-    key = getPropertyOrUseDefault("bintrayKey", "fake_key")
+    user = bintrayUser
+    key = bintrayKey
     publications = ['groovyMaven']
 
     def projectName = project.name
     def projectDescription = project.description
 
     pkg {
-        repo = 'maven' // or your repo name
+        repo = 'karman'
+        userOrg = 'karman'
         name = projectName      // somehow project.* doesn't work in this closure
         desc = projectDescription
         licenses = ['Apache-2.0']
     }
-    dryRun = true // whether to run this as dry-run, without deploying
+    dryRun = false // whether to run this as dry-run, without deploying
 }
 
-String getPropertyOrUseDefault(String propertyName, String defaultValue) {
-    hasProperty(propertyName) ? getProperty(propertyName) : defaultValue
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
 }
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+bintrayUpload.dependsOn build, sourcesJar, javadocJar
+

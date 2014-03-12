@@ -101,5 +101,16 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
 }
 
-bintrayUpload.dependsOn build, sourcesJar, javadocJar
+bintrayUpload.dependsOn jar, sourcesJar, javadocJar
+
+configurations {
+    published
+}
+
+artifactoryPublish.dependsOn sourcesJar, javadocJar
+
+artifacts {
+    published sourcesJar
+    published javadocJar
+}
 

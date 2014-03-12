@@ -12,19 +12,19 @@ class RackspaceStorageProvider extends StorageProvider {
 
     static String name = "rackspace"
 
-    String accessKey
+    String username
     String secretKey
     String region
 
     CloudFilesClient cloudFilesClient
 
-    RackspaceStorageProvider(String accessKey, String secretKey, String region) {
-        this.accessKey = accessKey
-        this.secretKey = secretKey
-        this.region = region
+    RackspaceStorageProvider(Map options) {
+        this.username = options.username
+        this.secretKey = options.secretKey
+        this.region = "cloudfiles-${options.region}"
 
-        this.cloudFilesClient = ContextBuilder.newBuilder(region)
-                .credentials(accessKey, secretKey)
+        this.cloudFilesClient = ContextBuilder.newBuilder(this.region)
+                .credentials(this.username, this.secretKey)
                 .buildApi(CloudFilesClient)
     }
 

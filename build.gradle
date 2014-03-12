@@ -24,11 +24,12 @@ buildscript {
 
 repositories {
     jcenter()
+    maven { url 'http://dl.bintray.com/karman/karman' }
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.2.1'
-    testCompile 'junit:junit:4.10'
+    compile 'org.codehaus.groovy:groovy-all:2.2.2'
+    compile 'com.bertramlabs.plugins:karman-core:0.1.0'
 }
 
 sourceSets {

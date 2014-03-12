@@ -30,6 +30,8 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.2'
     compile 'com.bertramlabs.plugins:karman-core:0.1.0'
+    //compile "org.apache.jclouds.provider:cloudfiles-uk:1.7.1"
+    compile 'org.apache.jclouds.api:cloudfiles:1.7.1'
 }
 
 sourceSets {

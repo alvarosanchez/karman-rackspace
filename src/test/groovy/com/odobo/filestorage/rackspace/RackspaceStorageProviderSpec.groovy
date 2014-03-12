@@ -12,10 +12,10 @@ class RackspaceStorageProviderSpec extends Specification {
 
     def "it can be created"() {
         given:
-        KarmanConfigHolder.providerTypes << ["${RackspaceStorageProvider.name}": RackspaceStorageProvider]
+        RackspaceStorageProvider.registerProvider()
 
         when:
-        StorageProvider storageProvider = StorageProvider.create(provider: RackspaceStorageProvider.name, username: 'test', secretKey:'test', region:'uk')
+        StorageProvider storageProvider = StorageProvider.create(provider: 'rackspace', username: 'test', secretKey:'test', region:'uk')
 
         then:
         storageProvider

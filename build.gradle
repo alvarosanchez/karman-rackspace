@@ -1,6 +1,7 @@
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
+apply plugin: 'maven'
 apply plugin: 'bintray'
 apply plugin: 'artifactory'
 

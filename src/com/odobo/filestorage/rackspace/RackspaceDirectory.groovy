@@ -3,8 +3,6 @@ package com.odobo.filestorage.rackspace
 import com.bertramlabs.plugins.karman.CloudFile
 import com.bertramlabs.plugins.karman.Directory
 import org.jclouds.cloudfiles.CloudFilesClient
-import org.jclouds.openstack.swift.CommonSwiftClient
-import org.jclouds.openstack.swift.domain.ContainerMetadata
 
 /**
  * TODO: write doc

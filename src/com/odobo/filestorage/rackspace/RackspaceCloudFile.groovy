@@ -1,11 +1,9 @@
 package com.odobo.filestorage.rackspace
 
 import com.bertramlabs.plugins.karman.CloudFile
-import com.bertramlabs.plugins.karman.Directory
 import org.jclouds.openstack.swift.CommonSwiftClient
 import org.jclouds.openstack.swift.domain.MutableObjectInfoWithMetadata
 import org.jclouds.openstack.swift.domain.ObjectInfo
-import org.jclouds.openstack.swift.domain.SwiftObject
 
 /**
  * TODO: write doc

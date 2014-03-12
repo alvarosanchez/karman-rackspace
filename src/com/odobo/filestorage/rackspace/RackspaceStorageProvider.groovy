@@ -3,12 +3,7 @@ package com.odobo.filestorage.rackspace
 import com.bertramlabs.plugins.karman.Directory
 import com.bertramlabs.plugins.karman.StorageProvider
 import org.jclouds.ContextBuilder
-import org.jclouds.blobstore.BlobStore
-import org.jclouds.blobstore.BlobStoreContext
 import org.jclouds.cloudfiles.CloudFilesClient
-import org.jclouds.openstack.swift.CommonSwiftAsyncClient
-import org.jclouds.openstack.swift.CommonSwiftClient
-import org.jclouds.rest.RestContext
 
 /**
  * TODO: write doc

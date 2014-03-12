@@ -25,6 +25,7 @@ buildscript {
 repositories {
     jcenter()
     maven { url 'http://dl.bintray.com/karman/karman' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 dependencies {
@@ -32,6 +33,8 @@ dependencies {
     compile 'com.bertramlabs.plugins:karman-core:0.1.1'
     //compile "org.apache.jclouds.provider:cloudfiles-uk:1.7.1"
     compile 'org.apache.jclouds.api:cloudfiles:1.7.1'
+
+    compile "org.spockframework:spock-core:1.0-groovy-2.0-SNAPSHOT"
 }
 
 sourceSets {

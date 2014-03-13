@@ -19,6 +19,9 @@ class RackspaceStorageProvider extends StorageProvider {
     CloudFilesClient cloudFilesClient
 
     RackspaceStorageProvider(Map options) {
+        if (!options.keySet().containsAll(['username', 'secretKey', 'region'])) {
+            throw new IllegalArgumentException("username, secretKey and region are required properties")
+        }
         this.username = options.username
         this.secretKey = options.secretKey
         this.region = "cloudfiles-${options.region}"

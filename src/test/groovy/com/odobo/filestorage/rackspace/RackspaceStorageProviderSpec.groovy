@@ -10,14 +10,16 @@ import spock.lang.Specification
  */
 class RackspaceStorageProviderSpec extends Specification {
 
-    def "it can be created"() {
-        given:
-        RackspaceStorageProvider.registerProvider()
+    def setupSpec() {
+        StorageProvider.registerProvider(RackspaceStorageProvider)
+    }
 
+    def "it can be created"() {
         when:
         StorageProvider storageProvider = StorageProvider.create(provider: 'rackspace', username: 'test', secretKey:'test', region:'uk')
 
         then:
         storageProvider
     }
+
 }

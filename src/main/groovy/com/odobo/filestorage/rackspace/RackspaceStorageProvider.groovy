@@ -10,7 +10,7 @@ import org.jclouds.cloudfiles.CloudFilesClient
  */
 class RackspaceStorageProvider extends StorageProvider {
 
-    static String name = "rackspace"
+    static String providerName = "rackspace"
 
     String username
     String secretKey

@@ -5,7 +5,6 @@ script:
 - TERM=dumb ./gradlew check
 jdk:
 - oraclejdk7
-- openjdk7
 env:
   global:
   - secure: n7bZWaU2d1m1bpMQhz4XymWLljK0cGNo5/lqgx/1pB3xo2Q7gaRAQYf1UTjPYnl/zyxMbmxIKADCEIdE0BbbeFPw9pBNgk724JhSaMX9Ru+jaKAfvSrxddSWzN8YqqWGUg7E0gtrqRp+muzLqx4jvn7h79vVO0Pi4mjNVu+hw9w=

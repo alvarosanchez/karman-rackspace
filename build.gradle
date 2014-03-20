@@ -11,6 +11,11 @@ description = "Karman implementation of Rackspace API"
 
 ext.isSnapshot = version.endsWith('SNAPSHOT')
 
+if (!bintrayUser || !bintrayKey) {
+    ext.bintrayUser = ''
+    ext.bintrayKey = ''
+}
+
 buildscript {
     repositories {
         jcenter()
@@ -56,8 +61,8 @@ publishing {
 
 bintray {
 
-    user = bintrayUser?:''
-    key = bintrayKey?:''
+    user = bintrayUser
+    key = bintrayKey
     publications = ['groovyMaven']
 
     def projectName = project.name
@@ -86,8 +91,8 @@ artifactoryPublish { task ->
                 // Need this to enable non deployment builds without credentials
                 gradle.taskGraph.whenReady { taskGraph ->
                     if (taskGraph.hasTask(task)) {
-                        username = bintrayUser?:''
-                        password = bintrayKey?:''
+                        username = bintrayUser
+                        password = bintrayKey
                     }
                 }
             }

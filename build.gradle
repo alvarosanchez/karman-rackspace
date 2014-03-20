@@ -11,7 +11,7 @@ description = "Karman implementation of Rackspace API"
 
 ext.isSnapshot = version.endsWith('SNAPSHOT')
 
-if (!bintrayUser || !bintrayKey) {
+if (!ext.bintrayUser || !ext.bintrayKey) {
     ext.bintrayUser = ''
     ext.bintrayKey = ''
 }
